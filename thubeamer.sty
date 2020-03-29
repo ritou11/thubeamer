@@ -56,6 +56,9 @@
 \DeclareOptionBeamer{nologo}{\@logofalse}
 \ProcessOptionsBeamer
 
+% Commands
+\newcommand{\email}[1]{\def\@email{#1}}
+
 % main template
 \mode<presentation>
 % \usecolortheme{rose}
@@ -74,7 +77,10 @@
     \begin{beamercolorbox}[ht=2.5ex,dp=1.125ex,%
       leftskip=.3cm,rightskip=.3cm plus1fil]{author in head/foot}%
       {\usebeamerfont{institute in head/foot}\usebeamercolor[fg]{institute in head/foot}\insertshortinstitute, }
-      \leavevmode{\usebeamerfont{author in head/foot}\insertshortauthor}
+      \leavevmode{\usebeamerfont{author in head/foot}\insertshortauthor, }
+      \ifdefined\@email
+      \leavevmode{\usebeamerfont{author in head/foot}\@email}
+      \fi
       \hfill%
       {\usebeamerfont{institute in head/foot}\usebeamercolor[fg]{institute in head/foot}\insertdate}
     \end{beamercolorbox}%
