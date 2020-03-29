@@ -73,9 +73,10 @@
     \end{beamercolorbox}
     \begin{beamercolorbox}[ht=2.5ex,dp=1.125ex,%
       leftskip=.3cm,rightskip=.3cm plus1fil]{author in head/foot}%
-      \leavevmode{\usebeamerfont{author in head/foot}\insertshortauthor}%
+      {\usebeamerfont{institute in head/foot}\usebeamercolor[fg]{institute in head/foot}\insertshortinstitute, }
+      \leavevmode{\usebeamerfont{author in head/foot}\insertshortauthor}
       \hfill%
-      {\usebeamerfont{institute in head/foot}\usebeamercolor[fg]{institute in head/foot}\insertshortinstitute}%
+      {\usebeamerfont{institute in head/foot}\usebeamercolor[fg]{institute in head/foot}\insertdate}
     \end{beamercolorbox}%
     \begin{beamercolorbox}[ht=2.5ex,dp=1.125ex,%
       leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}%
@@ -90,9 +91,6 @@
 \useinnertheme{rectangles}
 \usecolortheme{whale}
 \usecolortheme{orchid}
-
-%\useoutertheme{default}
-%\useinnertheme[shadow=true]{rounded}
 
 \xdefinecolor{tsinghua}{rgb}{0.455,0.204,0.506}  %RGB#82318E
 \setbeamercolor{frametitle}{bg=tsinghua,fg=white}
