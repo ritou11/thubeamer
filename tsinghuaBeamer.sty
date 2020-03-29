@@ -139,28 +139,51 @@
       \includegraphics[width = 0.6\textwidth]{Tsinghua_University_Logo.eps}
     };
   \end{tikzpicture}
-  \fi
 
-  \vskip1cm
+  \vspace{1cm}\vfill
   \begin{beamercolorbox}[wd=0.95\paperwidth,leftskip=0.12\paperwidth,#1]{title page header}
     \huge \inserttitle%
   \end{beamercolorbox}%
   
-  \vskip1cm%
+  \vspace{1cm}\vfill
   \begin{beamercolorbox}[wd=0.95\paperwidth,leftskip=0.12\paperwidth,#1]{author}
     \usebeamerfont{author}\insertauthor%
   \end{beamercolorbox}
   
-  \vskip0.2cm%
+  \vspace{0.2cm}
   \begin{beamercolorbox}[wd=0.95\paperwidth,leftskip=0.12\paperwidth,#1]{institue}
     \usebeamerfont{author}\insertinstitute%
   \end{beamercolorbox}
   
-  \vskip0.2cm%
+  \vspace{0.2cm}
   \begin{beamercolorbox}[wd=0.95\paperwidth,leftskip=0.12\paperwidth,#1]{date}
     \usebeamerfont{author}\insertdate%
   \end{beamercolorbox}
-
+  \else
+  \vspace{1cm}\vfill
+  \begin{beamercolorbox}[wd=0.95\paperwidth,#1]{title page header}
+    \centering
+    \huge \inserttitle
+  \end{beamercolorbox}
+  
+  \vspace{1cm}\vfill
+  \begin{beamercolorbox}[wd=0.95\paperwidth,#1]{author}
+    \centering
+    \usebeamerfont{author}\insertauthor%
+  \end{beamercolorbox}
+  
+  \vspace{0.2cm}
+  \begin{beamercolorbox}[wd=0.95\paperwidth,#1]{institue}
+    \centering
+    \usebeamerfont{author}\insertinstitute%
+  \end{beamercolorbox}
+  
+  \vspace{0.2cm}
+  \begin{beamercolorbox}[wd=0.95\paperwidth,#1]{date}
+    \centering
+    \usebeamerfont{author}\insertdate%
+  \end{beamercolorbox}
+  \fi
   \vfill
 }
 
