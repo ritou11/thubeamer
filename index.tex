@@ -1,80 +1,72 @@
 ﻿\documentclass[utf8,aspectratio=1610]{beamer}
-\usepackage{ctex}
-\usepackage[utf8]{inputenc}
-\usepackage{latexsym,amssymb,amsmath,amsbsy,amsopn,amstext,xcolor,multicol}
-\usepackage{graphicx,wrapfig,fancybox}
-\usepackage{pgf,pgfarrows,pgfnodes,pgfautomata,pgfheaps,pgfshade}
-\usepackage{thubeamer}
-\usepackage{fontspec}
+\usepackage[nologo]{tsinghuaBeamer}
+% \usepackage[utf8]{inputenc}
+% \usepackage{latexsym,amssymb,amsmath,amsbsy,amsopn,amstext,xcolor,multicol}
+% \usepackage{wrapfig,fancybox}
+% \usepackage{pgf,pgfarrows,pgfnodes,pgfautomata,pgfheaps,pgfshade}
+% \usepackage{fontspec}
 \setsansfont{Times New Roman}
-
 
 %\setframeofframes{of} % 1/10 --> curPage of totPage
 
 \begin{document}
 
-
 \title{Tsinghua大学 Beamer}
-\author{Single Fermion}
+\author{Haotian Liu}
 \institute{Tsinghua大学}
-%\date{}
+\date{\today}
 
 \frame{
 \titlepage
-\begin{figure}[htpb]
-  \begin{center}
-	\includegraphics[width=0.2\linewidth]{Tsinghua_University_Logo.eps}
-  \end{center}
-\end{figure}
 }
 
-  \section*{Table Of Contents}
-  \frame {
-    \frametitle{\secname}
-    \tableofcontents
+\section*{Table Of Contents}
+\frame {
+  \frametitle{\secname}
+  \tableofcontents
+}
+
+\AtBeginSubsection[] {
+\frame<handout:0> {
+\frametitle{Outline}
+\tableofcontents[current,currentsubsection]
   }
+}
 
-  \AtBeginSubsection[] {
-  \frame<handout:0> {
-  \frametitle{Outline}
-  \tableofcontents[current,currentsubsection]
-    }
-  }
+\section{Section I}
 
-  \section{Section I}
+\subsection{Subsection I}
 
-  \subsection{Subsection I}
+\frame{
+%\frametitle{\subsecname~}
+Itemize item, just items:
+  \begin{itemize}[<+-| alert@+>]
+  \item
+  item a
+  \item
+  item b
+  \item
+  item c
+  \item
+  item d
+  \end{itemize}
+}
 
-  \frame{
-  %\frametitle{\subsecname~}
-  Itemize item, just items:
-    \begin{itemize}[<+-| alert@+>]
-    \item
-   item a
-    \item
-   item b
-    \item
-   item c
-    \item
-   item d
-    \end{itemize}
-  }
+\subsection{Subsection II }
+\frame{
+  %\frametitle{\subsecname~Goods}
+The enumarate item:
+  \begin{enumerate}[<+-| alert@+>]
+  \item
+  Item start with number
+  \item
+    This is item 2
+\end{enumerate}
+}
 
-  \subsection{Subsection II }
-  \frame{
-    %\frametitle{\subsecname~Goods}
-	The enumarate item:
-    \begin{enumerate}[<+-| alert@+>]
-    \item
-	 Item start with number
-    \item
-     This is item 2
-  \end{enumerate}
-  }
+\section{section II}
 
-  \section{section II}
-
-  \subsection{subsection I}
+\subsection{subsection I}
 
 \frame{
   Description item:

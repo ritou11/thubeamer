@@ -1,17 +1,67 @@
-%This version is modified by [tanglei](http://www.tanglei.name)
-%The origin is from http://far.tooold.cn/post/latex/beamertsinghua
-\mode<presentation>
+% [tsinghuaBeamer](https://github.com/ritou11/tsinghuaBeamer)
+% author: nogeek
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{tsinghuaBeamer}[2020/03/29]
+\typeout{Daily Presentation Version 1.0}
+\RequirePackage{ctex}
+\RequirePackage{graphicx}
+\RequirePackage{tikz}
+% Math
+\RequirePackage{amsthm,amsfonts}
+\RequirePackage{amsmath,bm}
+\RequirePackage{amssymb,mathrsfs}
+\RequirePackage{latexsym}
+% Units
+\RequirePackage{siunitx}
+% Fonts
+\RequirePackage[T1]{fontenc}
+% Tables
+\RequirePackage{longtable,multirow,hhline,tabularx,array}
+\RequirePackage{multicol}
+% Code
+\RequirePackage{listings}
 
-\newif\ifbeamer@secheader
-\beamer@secheaderfalse
+% Packages Options - graphicx
+\graphicspath{{./}{./img/}{./fig/}{./image/}{./figure/}{./picture/}{./pic/}}
 
-%\DeclareOptionBeamer{secheader}{\beamer@secheadertrue}
+% Packages Options - listing
+\definecolor{grey}{rgb}{0.8,0.8,0.8}
+\definecolor{darkgreen}{rgb}{0,0.3,0}
+\definecolor{darkblue}{rgb}{0,0,0.3}
+\def\lstbasicfont{\fontfamily{pcr}\selectfont\footnotesize}
+\lstset{%
+% indexing
+   % numbers=left,
+   % numberstyle=\small,%
+% character display
+    showstringspaces=false,
+    showspaces=false,%
+    tabsize=4,%
+% style
+    frame=lines,%
+    basicstyle={\footnotesize\lstbasicfont},%
+    keywordstyle=\color{darkblue}\bfseries,%
+    identifierstyle=,%
+    commentstyle=\color{darkgreen},%\itshape,%
+    stringstyle=\color{black}%
+}
+\lstloadlanguages{C,C++,Java,Matlab,Python}
+\lstdefinestyle{sharpc}{breaklines=true,language=[Sharp]C}
+
+% Options
+% \newif\ifbeamer@secheader
+% \beamer@secheaderfalse
+% \DeclareOptionBeamer{secheader}{\beamer@secheadertrue}
+\newif\if@logo \@logotrue
+\DeclareOptionBeamer{nologo}{\@logofalse}
 \ProcessOptionsBeamer
 
-%\usecolortheme{rose}
-%\useinnertheme[shadow]{rounded}
-%\usecolortheme{dolphin}
-%\useoutertheme{infolines}
+% main template
+\mode<presentation>
+% \usecolortheme{rose}
+% \useinnertheme[shadow]{rounded}
+% \usecolortheme{dolphin}
+% \useoutertheme{infolines}
 
 \useoutertheme[footline=authorinstitutetitle]{miniframes}
 \makeatletter % [add curpage/total page at the bottom](http://tex.stackexchange.com/questions/100838/beamer-dresden-theme-miniframes-appeareance-and-frame-number-insertion)
@@ -36,7 +86,6 @@
     \begin{beamercolorbox}[colsep=1.5pt]{lower separation line foot}
     \end{beamercolorbox}
   }
-\makeatother
 
 \useinnertheme{rectangles}
 \usecolortheme{whale}
@@ -84,5 +133,38 @@
 
 %\ifbeamer@secheader\else\setbeamertemplate{headline}[default]\fi
 
-\mode
-<all>
+\defbeamertemplate*{title page}{texsx}[1][]
+{%
+  \if@logo
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[xshift=-2cm,yshift=2cm,opacity=0.5] at (current page.south east) {
+      \includegraphics[width = 0.6\textwidth]{Tsinghua_University_Logo.eps}
+    };
+  \end{tikzpicture}
+  \fi
+
+  \vskip1cm
+  \begin{beamercolorbox}[wd=0.95\paperwidth,leftskip=0.12\paperwidth,#1]{title page header}
+    \huge \inserttitle%
+  \end{beamercolorbox}%
+  
+  \vskip1cm%
+  \begin{beamercolorbox}[wd=0.95\paperwidth,leftskip=0.12\paperwidth,#1]{author}
+    \usebeamerfont{author}\insertauthor%
+  \end{beamercolorbox}
+  
+  \vskip0.2cm%
+  \begin{beamercolorbox}[wd=0.95\paperwidth,leftskip=0.12\paperwidth,#1]{institue}
+    \usebeamerfont{author}\insertinstitute%
+  \end{beamercolorbox}
+  
+  \vskip0.2cm%
+  \begin{beamercolorbox}[wd=0.95\paperwidth,leftskip=0.12\paperwidth,#1]{date}
+    \usebeamerfont{author}\insertdate%
+  \end{beamercolorbox}
+
+  \vfill
+}
+
+\makeatother
+\mode<all>
