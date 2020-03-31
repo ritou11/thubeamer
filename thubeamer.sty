@@ -66,6 +66,15 @@
 % \usecolortheme{dolphin}
 % \useoutertheme{infolines}
 
+% https://tex.stackexchange.com/a/160827
+\newcommand\Wider[2][3em]{%
+\makebox[\linewidth][c]{%
+  \begin{minipage}{\dimexpr\textwidth+#1\relax}
+  \raggedright#2
+  \end{minipage}%
+  }%
+}
+
 \useoutertheme[footline=authorinstitutetitle]{miniframes}
 \makeatletter % [add curpage/total page at the bottom](http://tex.stackexchange.com/questions/100838/beamer-dresden-theme-miniframes-appeareance-and-frame-number-insertion)
 \newcommand{\frameofframes}{/}
