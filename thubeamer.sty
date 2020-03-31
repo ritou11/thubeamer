@@ -58,14 +58,6 @@
 
 % Commands
 \newcommand{\email}[1]{\def\@email{#1}}
-
-% main template
-\mode<presentation>
-% \usecolortheme{rose}
-% \useinnertheme[shadow]{rounded}
-% \usecolortheme{dolphin}
-% \useoutertheme{infolines}
-
 % https://tex.stackexchange.com/a/160827
 \newcommand\Wider[2][3em]{%
 \makebox[\linewidth][c]{%
@@ -74,6 +66,14 @@
   \end{minipage}%
   }%
 }
+
+% main template
+\mode<presentation>
+% \usecolortheme{rose}
+% \useinnertheme[shadow]{rounded}
+% \usecolortheme{dolphin}
+% \useoutertheme{infolines}
+\usefonttheme[onlymath]{serif}
 
 \useoutertheme[footline=authorinstitutetitle]{miniframes}
 \makeatletter % [add curpage/total page at the bottom](http://tex.stackexchange.com/questions/100838/beamer-dresden-theme-miniframes-appeareance-and-frame-number-insertion)
